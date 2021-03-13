@@ -1,0 +1,21 @@
+{
+  "name": "docusaurus-theme-shiki-twoslash",
+  "version": "0.0.1",
+  "description": "Shiki Code Highlighting in Docusaurus.",
+  "main": "src/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orta/docusaurus-theme-shiki-twoslash.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@docusaurus/core": "*",
+    "remark-shiki-twoslash": "^1.0.3"
+  },
+  "engines": {
+    "node": ">=12.13.0"
+  }
+}

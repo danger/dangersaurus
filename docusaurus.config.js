@@ -205,6 +205,7 @@ module.exports = {
       copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
     },
   },
+  themes: ['./plugins/docusaurus-theme-shiki-twoslash'],
   presets: [
     [
       "@docusaurus/preset-classic",
@@ -214,14 +215,14 @@ module.exports = {
           // Please change this to your repo.
           editUrl: "https://github.com/facebook/docusaurus/edit/master/website/",
           routeBasePath: "/",
-          beforeDefaultRemarkPlugins: [
-            // require('remark-shiki-twoslash') 
-            [require("remark-shiki-twoslash").default, { 
-              theme: "github-light",
-              useNodeModules: true,
-              nodeModulesTypesPath: path.join(__dirname, "node_modules"),
-             }]
-          ],
+          // beforeDefaultRemarkPlugins: [
+          //   // require('remark-shiki-twoslash') 
+          //   [require("remark-shiki-twoslash").default, { 
+          //     theme: "github-light",
+          //     useNodeModules: true,
+          //     nodeModulesTypesPath: path.join(__dirname, "node_modules"),
+          //    }]
+          // ],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),

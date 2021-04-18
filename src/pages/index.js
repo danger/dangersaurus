@@ -8,32 +8,32 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Easy to Use',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    title: 'Powerful Tooling for Improving Collaboration',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        <p>Danger adds a new step in your CI process. There's this ambiguous time period after tests have passed, and before a human reviews the code.</p>
+        <p>Sure, your linter and tests passed, but did you accidentally put a file in the wrong place, or did you forget to add a CHANGELOG entry? </p>
+        <p><strong>Automate your code review chores.</strong></p>
       </>
     ),
   },
   {
-    title: 'Focus on What Matters',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    title: 'No Project is the Same',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        <p>Danger is runtime, like how a testing framework runs your code. <strong>You make the rules for your projects</strong>.</p>
+        <p><strong>Danger supports many developer ecosystems.</strong> By relying on Danger JS to do the heavy lifting, many languages can provide native support for writing rules.</p>
       </>
     ),
   },
   {
-    title: 'Powered by React',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    title: 'Supports Your Tools',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        <p>Danger works with GitHub, BitBucket Server, BitBucket Cloud for code review, then with: Travis CI, GitLab CI,
+Semaphore, Circle CI, GitHub Actions, Jenkins, Docker Cloud, Bamboo, Bitrise, surf-build, Codeship, Drone, Buildkite,
+Nevercode, buddybuild, Buddy.works, TeamCity, Visual Studio Team Services, Screwdriver, Concourse, Netlify, CodeBuild,
+Codefresh, AppCenter, BitBucket Pipelines, Cirrus CI, or Codemagic.</p>
       </>
     ),
   },
@@ -49,7 +49,7 @@ function Feature({imageUrl, title, description}) {
         </div>
       )}
       <h3>{title}</h3>
-      <p>{description}</p>
+      {description}
     </div>
   );
 }
@@ -59,23 +59,13 @@ function Home() {
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      title={`Hello Danger`}
+      description="Danger, a multi-ecosystem code review linting tool">
+      <header className={clsx('hero ', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">{siteConfig.title}</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/')}>
-              Get Started
-            </Link>
-          </div>
+          <img src="/img/logos/danger-logo-hero@2x.png"/>
         </div>
+        <br />
       </header>
       <main>
         {features && features.length > 0 && (
@@ -90,6 +80,19 @@ function Home() {
           </section>
         )}
       </main>
+
+
+      <div className="container">
+        <center><h2>Get Started in Your Language</h2></center>
+      </div>
+      <div className="container sub-logos">
+          <a href="/js"><img src="/img/logos/js-logo@2x.png"/></a>
+          <a href="/ruby"><img src="/img/logos/ruby-logo@2x.png"/></a>
+          <a href="/swift"><img src="/img/logos/swift-logo@2x.png"/></a>
+          <a href="/py"><img src="/img/logos/danger-js-py-logo-hero-cachable@2x.png"/></a>
+          <a href="/kotlin"><img src="/img/logos/danger-js-ktln-logo-hero-cachable@2x.png"/></a>
+          <a href="/dart"><img src="/img/logos/danger-js-dart-logo-hero-cachable@2x.png"/></a>
+        </div>
     </Layout>
   );
 }

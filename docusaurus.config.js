@@ -1,4 +1,5 @@
 const path = require("path")
+const {generateNavItems} = require("./scripts/generateNavItems")
 
 /** @type import("@docusaurus/types").DocusaurusConfig */
 module.exports = {
@@ -18,142 +19,7 @@ module.exports = {
         alt: "My Site Logo",
         src: "img/logo.svg",
       },
-      items: [
-        {
-          to: "js/",
-          activeBasePath: "/",
-          label: "JS",
-          position: "left",
-          items: [
-            {
-              label: "Get Started",
-              href: "...",
-            },
-            {
-              label: "Guides",
-              href: "...",
-            },
-            {
-              label: "Usage",
-              href: "...",
-            },
-            {
-              label: "Reference",
-              href: "...",
-            },
-            {
-              label: "Playground",
-              href: "...",
-            },
-            {
-              label: "Repo",
-              href: "https://github.com/danger/danger-js",
-            },
-          ],
-        },
-        {
-          to: "swift/",
-          activeBasePath: "/",
-          label: "Swift",
-          position: "left",
-          items: [
-            {
-              label: "Get Started",
-              href: "...",
-            },
-            {
-              label: "Guides",
-              href: "...",
-            },
-            {
-              label: "Usage",
-              href: "...",
-            },
-            {
-              label: "Reference",
-              href: "...",
-            },
-            {
-              label: "Playground",
-              href: "...",
-            },
-            {
-              label: "Repo",
-              href: "https://github.com/danger/swift",
-            },
-          ],
-        },
-        {
-          to: "js/",
-          activeBasePath: "/",
-          label: "Kotlin",
-          position: "left",
-          items: [
-            {
-              label: "Get Started",
-              href: "...",
-            },
-            {
-              label: "Guides",
-              href: "...",
-            },
-            {
-              label: "Usage",
-              href: "...",
-            },
-            {
-              label: "Reference",
-              href: "...",
-            },
-            {
-              label: "Playground",
-              href: "...",
-            },
-            {
-              label: "Repo",
-              href: "https://github.com/danger/danger-js",
-            },
-          ],
-        },
-
-        {
-          to: "/ruby",
-          activeBasePath: "/",
-          label: "Ruby",
-          position: "left",
-          items: [
-            {
-              label: "Get Started",
-              href: "...",
-            },
-            {
-              label: "Guides",
-              href: "...",
-            },
-            {
-              label: "Usage",
-              href: "...",
-            },
-            {
-              label: "Reference",
-              href: "...",
-            },
-            {
-              label: "Playground",
-              href: "...",
-            },
-            {
-              label: "Repo",
-              href: "https://github.com/danger/danger-js",
-            },
-          ],
-        },
-        {
-          href: "https://github.com/facebook/docusaurus",
-          label: "GitHub",
-          position: "right",
-        },
-      ],
+      items: generateNavItems()
     },
     footer: {
       style: "dark",
@@ -215,14 +81,14 @@ module.exports = {
           // Please change this to your repo.
           editUrl: "https://github.com/facebook/docusaurus/edit/master/website/",
           routeBasePath: "/",
-          // beforeDefaultRemarkPlugins: [
-          //   // require('remark-shiki-twoslash') 
-          //   [require("remark-shiki-twoslash").default, { 
-          //     theme: "github-light",
-          //     useNodeModules: true,
-          //     nodeModulesTypesPath: path.join(__dirname, "node_modules"),
-          //    }]
-          // ],
+          beforeDefaultRemarkPlugins: [
+            // require('remark-shiki-twoslash') 
+            [require("remark-shiki-twoslash").default, { 
+              theme: "github-light",
+              useNodeModules: true,
+              nodeModulesTypesPath: path.join(__dirname, "node_modules"),
+             }]
+          ],
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -230,4 +96,5 @@ module.exports = {
       },
     ],
   ],
+  plugins: ["docusaurus-plugin-sass", "./plugins/danger-docusaurus-plugin.js"]
 };

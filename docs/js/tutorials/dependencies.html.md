@@ -25,11 +25,12 @@ The simplest rule, which we can evolve, is that any time your `package.json` cha
 [`yarn.lock`][lockfile] or [`shrinkwrap.json`][shrinkwrap] file. Yes, not every change to the `package.json` represents
 a dependency update but we're starting simple. You start off your `Dangerfile` like this:
 
-```ts twoslash
+```js
 import { danger, fail, warn } from "danger"
+import includes from "lodash.includes"
 
-const hasPackageChanges = danger.git.modified_files.includes("package.json")
-const hasLockfileChanges = danger.git.modified_files.includes("yarn.lock")
+const hasPackageChanges = includes(danger.git.modified_files, "package.json")
+const hasLockfileChanges = includes(danger.git.modified_files, "yarn.lock")
 if (hasPackageChanges && !hasLockfileChanges) {
   warn("There are package.json changes with no corresponding lockfile changes")
 }
